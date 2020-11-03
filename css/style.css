@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
 header{
     width: 100%;
     margin:  0 auto;
@@ -11,8 +13,7 @@ header a, header a:hover, header a:active, header a:visited {
 }
 
 header a:hover{
-    background-color: rgba(0, 0, 0, 0.5);
-    /*padding: 0.5em;*/
+    background-color: rgba(0, 123, 255, 0.5);
     transition: background-color ease-in-out 1s;
 }
 
@@ -20,8 +21,16 @@ nav{
     padding-bottom: 3vh;
 }
 
-h1, header p{
+h1, header p, #result-city h3{
     text-align: center;
+}
+
+h1, h2, h3{
+    font-family: 'Merriweather', serif;
+}
+
+hr{
+    border: 1px solid white;
 }
 
 .content{
@@ -30,7 +39,15 @@ h1, header p{
     padding: 5vh 2vw;
 }
 
-#rsuelt-city{
-    padding: 2vh 1vw;
-    background-color: rgba(0, 0, 0, 0.3);
+#result-city{
+    padding: 4vh 1vw;
 }
+
+#result-city h3{
+    color: #007bff;
+}
+
+.bold{
+    font-weight: bold;
+}
+
