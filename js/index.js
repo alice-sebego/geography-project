@@ -39,7 +39,7 @@ $postal.addEventListener("submit", (e)=>{
             const textResult = document.createElement("p");
             textResult.innerHTML = `Le code postal <strong> ${Object.values(reponseData)[0]}</strong> correspond à la ville de <strong>${cityName}</strong> `;
     
-            resultCity.style.backgroundColor = "background-color: rgba(0, 0, 0, 0.2);"
+            resultCity.style.backgroundColor = "rgba(0, 0, 0, 0.2);"
             resultCity.prepend(h3Result);
             resultCity.appendChild(textResult);
     

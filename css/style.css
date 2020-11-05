@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
 
+/* HEADER */
 header{
     width: 100%;
     margin:  0 auto;
     padding: 10vh 3vw;
     color: white;
-    background: no-repeat url(./../images/pexels-suzy-hazelwood-1098515.jpg) ;
+    background: url(./../images/pexels-suzy-hazelwood-1098515.jpg) no-repeat center center ;
+    background-size: cover;
 }
 
 header a, header a:hover, header a:active, header a:visited {
@@ -25,17 +27,23 @@ h1, header p, #result-city h3{
     text-align: center;
 }
 
+header p{
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 0.1em;
+}
+
 h1, h2, h3{
     font-family: 'Merriweather', serif;
 }
 
 hr{
     border: 1px solid white;
+    width: 50%;
 }
 
 .content{
     margin: auto;
-    width: 70%;
+    width: 50%;
     padding: 5vh 2vw;
 }
 
