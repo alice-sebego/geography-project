@@ -27,37 +27,39 @@ $postal.addEventListener("submit", (e)=>{
 
     } else { 
         
-        codePostalFrGet("http://api.zippopotam.us/fr/"+ $code, (reponse)=>{
+        codePostalFrGet("https://geo.api.gouv.fr/communes?format=json&codePostal="+ $code, (reponse)=>{
         
         let reponseData = JSON.parse(reponse);
 
-            const cityName = Object.values(reponseData.places[0])[0];
-            
-            resultCity.innerHTML = "";
-            const h3Result = document.createElement("h3");
-            h3Result.innerHTML = `Bienvenue dans la région ${reponseData.places[0].state} `;
-            const textResult = document.createElement("p");
-            textResult.innerHTML = `Le code postal <strong> ${Object.values(reponseData)[0]}</strong> correspond à la ville de <strong>${cityName}</strong> `;
-    
-            resultCity.style.backgroundColor = "rgba(0, 0, 0, 0.2);"
-            resultCity.prepend(h3Result);
-            resultCity.appendChild(textResult);
-    
-            const tableResult = document.createElement("table");
-            tableResult.setAttribute("class", "table");
-            tableResult.innerHTML = `<thead>
-                                        <tr>
-                                            <th scope="col">Longitude</th>
-                                            <th scope="col">Latitude</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>${reponseData.places[0].longitude}</td>
-                                            <td>${reponseData.places[0].latitude}</td>
-                                        </tr>
-                                    </tbody>`;
-            resultCity.appendChild(tableResult);
+            reponseData.forEach(city => {
+
+                resultCity.innerHTML = "";
+                const h3Result = document.createElement("h3");
+                h3Result.innerHTML = `Bienvenue dans le département ${city.codeDepartement} `;
+                const divTextResult = document.createElement("div");
+                const textResult = document.createElement("p");
+                textResult.innerHTML = `Le code postal <strong><span class="code-result">${city.codesPostaux}</span></strong> correspond à la ville de <strong>${city.nom}</strong><br> `;
+                divTextResult.appendChild(textResult);
+        
+                resultCity.prepend(h3Result);
+                resultCity.appendChild(divTextResult);
+        
+                const tableResult = document.createElement("table");
+                tableResult.setAttribute("class", "table");
+                tableResult.innerHTML = `<thead>
+                                            <tr>
+                                                <th scope="col">Population</th>
+                                                <th scope="col">Code INSEE</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>${city.population}</td>
+                                                <td>${city.code}</td>
+                                            </tr>
+                                        </tbody>`;
+                resultCity.appendChild(tableResult);
+            });
             
         });
     }
