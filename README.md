@@ -8,7 +8,7 @@ Here, I'm going to build a page with :
 ### A component with data from API
 * Create a input
 * Enter a postal code
-* This component give us data's town from an API - [Zippotamus] (http://www.zippopotam.us/ "link to Zippotamus") : Then, we'll have Name of town, Longitude, Latitude and Region
+* This component give us data's cities from an API - [GEO.API.GOUV] (https://geo.api.gouv.fr/ "link to Geo.api.gouv") : Then, we'll have Name of City, Department, Population and INSEE's code
 
 ### A component around countries
 * Create questions on several countries
